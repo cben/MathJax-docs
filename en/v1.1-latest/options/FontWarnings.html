@@ -1,0 +1,384 @@
+
+<!DOCTYPE html><html>
+<head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8"/>
+    
+        <title>The FontWarnings extension &mdash; MathJax 1.1 documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../_static/sphinx-bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css"/>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+        <script type="text/javascript">
+            var DOCUMENTATION_OPTIONS = {
+                URL_ROOT:'../',
+                VERSION:'1.1',
+                COLLAPSE_INDEX:false,
+                FILE_SUFFIX:'.html',
+                HAS_SOURCE:  true
+            };
+        </script>
+            <script type="text/javascript" src="../_static/jquery.js"></script>
+            <script type="text/javascript" src="../_static/underscore.js"></script>
+            <script type="text/javascript" src="../_static/doctools.js"></script>
+            <script type="text/javascript" src="../_static/bootstrap-dropdown.js"></script>
+        <link rel="top" title="MathJax 1.1 documentation" href="../index.html"/>
+            <link rel="up" title="Configuration Objects" href="index.html"/>
+            <link rel="next" title="Using MathJax in popular web platforms" href="../platforms/index.html"/>
+            <link rel="prev" title="The MathZoom extension" href="MathZoom.html"/> 
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    
+        <!-- analytics -->
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-15609829-1']);
+            
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+
+    <div class="related">
+        <ul class="nav">
+                <li><a href="http://www.mathjax.org/"><img src="http://cdn.mathjax.org/mathjax/badge/logo2.png" alt="MathJax"></a> </li>
+                <li class=""><a class="brand" href="../index.html">&raquo;Docs v1.1</a></li>
+                <li>
+                    <a href="../genindex.html"
+                       title="General Index" accesskey="I">index</a>
+                </li>
+                <li>
+                    <a href="../platforms/index.html"
+                       title="Using MathJax in popular web platforms" accesskey="N">next</a>
+                </li>
+                <li>
+                    <a href="MathZoom.html"
+                       title="The MathZoom extension" accesskey="P">previous</a>
+                </li>
+                <li><a href="index.html"
+                        accesskey="U">Configuration Objects</a>
+                </li> 
+        </ul>
+    </div>
+                <div class="pull-right">
+                    
+        <form class="navbar-search" action="../search.html"
+              method="get">
+            <input type="text" name="q" placeholder="search"/>
+            <input type="hidden" name="check_keywords" value="yes"/>
+            <input type="hidden" name="area" value="default"/>
+        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<ul class="quick-links">
+    <li><strong>Quick links</strong></li>
+    <li><a class="btn btn-mini" href="http://docs.mathjax.org/">v2.0 is out!</a>
+    </li>
+    <li>
+        <a href="https://github.com/mathjax/mathjax/">GitHub</a>
+    </li>
+    <li>
+        <a href="https://github.com/mathjax/mathjax/issues?state=open">Issues</a>
+    </li>
+    <li class="divider">&middot;</li>
+    <li>
+        <iframe class="github-btn"
+                src="http://ghbtns.com/github-btn.html?user=mathjax&repo=mathjax&type=watch&count=true"
+                allowtransparency="true" frameborder="0" scrolling="0"
+                width="110px" height="20px"></iframe>
+    </li>
+    <li>
+        <iframe class="github-btn"
+                src="http://ghbtns.com/github-btn.html?user=mathjax&repo=mathjax&type=fork&count=true"
+                allowtransparency="true" frameborder="0" scrolling="0"
+                width="94px" height="20px"></iframe>
+    </li>
+
+    <li class="divider">&middot;</li>
+    <li class="follow-btn">
+        <a href="https://twitter.com/mathjax"
+           class="twitter-follow-button" data-width="145px"
+           data-link-color="#0069D6" data-show-count="false">Follow
+            @mathjax</a>
+    </li>
+    <li class="tweet-btn">
+        <a href="https://twitter.com/share" class="twitter-share-button"
+           data-url="http://www.mathjax.org" data-count="horizontal"
+           data-via="twbootstrap"
+           data-related="mathjax:Creator of MathJax">Tweet</a>
+    </li>
+    <li class="plusone-container">
+        <g:plusone size="medium"></g:plusone>
+    </li>
+</ul>  
+    <div class="container">
+        <div class="content row">
+                <div class="span9">
+                    
+  <div class="section" id="the-fontwarnings-extension">
+<span id="configure-fontwarnings"></span><h1>The FontWarnings extension<a class="headerlink" href="#the-fontwarnings-extension" title="Permalink to this headline">¶</a></h1>
+<p>The options below control the operation of the <cite>FontWarnings</cite>
+extension that is run when you include <tt class="docutils literal"><span class="pre">&quot;FontWarnings.js&quot;</span></tt> in the
+<cite>extensions</cite> array of your configuration.  They are listed with their
+default values.  To set any of these options, include a
+<tt class="docutils literal"><span class="pre">FontWarnings</span></tt> section in your <tt class="xref py py-meth docutils literal"><span class="pre">MathJax.Hub.Config()</span></tt> call.
+For example</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Config</span><span class="p">({</span>
+  <span class="nx">FontWarnings</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">fadeoutTime</span><span class="o">:</span> <span class="mi">2</span><span class="o">*</span><span class="mi">1000</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>would set the <tt class="docutils literal"><span class="pre">fadeoutTime</span></tt> option to 2000 milliseconds (2 seconds).</p>
+<dl class="describe">
+<dt>
+<tt class="descname">messageStyle: { ... }</tt></dt>
+<dd><p>This sets the CSS styles to be used for the font warning message
+window.  See the <tt class="docutils literal"><span class="pre">extensions/FontWarnings.js</span></tt> file for details of
+what are set by default.  See the <a class="reference internal" href="../CSS-styles.html#css-style-objects"><em>CSS style objects</em></a> for details about how to specify CSS styles
+via javascript objects.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">Message: { ... }</tt></dt>
+<dd><p>This block contains HTML snippets to be used for the various
+messages that the FontWarning extension can produce.  There are
+three messages that you can redefine to suit your needs:</p>
+<dl class="describe">
+<dt>
+<tt class="descname">webFont: [ ... ]</tt></dt>
+<dd><p>The message used for when MathJax uses web-based fonts (rather
+than local fonts installed on the user&#8217;s system).</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">imageFonts: [ ... ]</tt></dt>
+<dd><p>The message used for when MathJax must use image fonts rather
+than local or web-based fonts (for those browsers that don&#8217;t
+handle the <tt class="docutils literal"><span class="pre">&#64;font-face</span></tt> CSS directive).</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">noFonts: [ ... ]</tt></dt>
+<dd><p>The message used when MathJax is unable to find any font to use
+(i.e., neither local nor web-based nor image-based fonts are
+available).</p>
+</dd></dl>
+
+<p>Any message that is set to <tt class="docutils literal"><span class="pre">null</span></tt> rather than an HTML snippet
+array will not be presented to the user, so you can set, for
+example, the <tt class="docutils literal"><span class="pre">webFont</span></tt> message to <tt class="docutils literal"><span class="pre">null</span></tt> in order to have the
+<tt class="docutils literal"><span class="pre">imageFonts</span></tt> and <tt class="docutils literal"><span class="pre">noFonts</span></tt> messages, but no message if MathJax
+uses web-based fonts.</p>
+<p>See the description of <a class="reference internal" href="../HTML-snippets.html#html-snippets"><em>HTML snippets</em></a> for
+details about how to describe the messages using HTML snippets.
+Note that in addition to the usual rules for defining such
+snippets, the FontWarnings snippets can include references to
+pre-defined snippets (that represent elements common to all three
+messages).  These are defined below in the <tt class="docutils literal"><span class="pre">HTML</span></tt> block, and are
+referenced using <tt class="docutils literal"><span class="pre">[&quot;name&quot;]</span></tt> within the snippet, where <cite>name</cite> is
+the name of one of the snippets defined in the <tt class="docutils literal"><span class="pre">HTML</span></tt>
+configuration block.  For example</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">Message</span><span class="o">:</span> <span class="p">{</span>
+  <span class="nx">noFonts</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;closeBox&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;MathJax is unable to locate a font to use to display &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;its mathematics, and image fonts are not available, so it &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;is falling back on generic unicode characters in hopes that &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;your browser will be able to display them.  Some characters &quot;</span><span class="p">,</span>
+    <span class="s2">&quot;may not show up properly, or possibly not at all.&quot;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s2">&quot;fonts&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;webfonts&quot;</span><span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>refers to the <tt class="docutils literal"><span class="pre">closeBox</span></tt>, <tt class="docutils literal"><span class="pre">fonts</span></tt> and <tt class="docutils literal"><span class="pre">webfonts</span></tt> snippets
+declared in the <tt class="docutils literal"><span class="pre">HTML</span></tt> section.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">HTML: { ... }</tt></dt>
+<dd><p>This object defines HTML snippets that are common to more than one
+message in the <tt class="docutils literal"><span class="pre">Message</span></tt> section above.  They can be included in
+other HTML snippets by by using <tt class="docutils literal"><span class="pre">[&quot;name&quot;]</span></tt> in an HTML snippet,
+where <cite>name</cite> refers to the name of the snippet in the <tt class="docutils literal"><span class="pre">HTML</span></tt>
+block.  The pre-defined snippets are:</p>
+<dl class="describe">
+<dt>
+<tt class="descname">closeBox</tt></dt>
+<dd><p>The HTML for the close box in the FontWarning message.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">webfonts</tt></dt>
+<dd><p>The HTML for a paragraph suggesting an upgrade to a more
+modern browser that supports web fonts.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">fonts</tt></dt>
+<dd><p>HTML that includes links to the MathJax and STIX font download
+pages.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">STIXfonts</tt></dt>
+<dd><p>HTML that gives the download link for the STIX fonts only.
+(Used in place of <cite>fonts</cite> when the <cite>HTML-CSS</cite> option for
+<cite>availableFonts</cite> only includes the <a class="reference internal" href="../glossary.html#term-stix"><em class="xref std std-term">STIX</em></a> fonts.)</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">TeXfonts</tt></dt>
+<dd><p>HTML that gives the download link for the MathJax TeX fonts
+only.  (Used in place of <cite>fonts</cite> when the <cite>HTML-CSS</cite> option
+for <cite>availableFonts</cite> only includes the <cite>TeX</cite> fonts.)</p>
+</dd></dl>
+
+<p>You can add your own pre-defined HTML snippets to this object, or
+override the ones that are there with your own text.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">removeAfter: 12*1000</tt></dt>
+<dd><p>This is the amount of time to show the FontWarning message, in
+milliseconds.  The default is 12 seconds.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">fadeoutSteps: 10</tt></dt>
+<dd><p>This is the number of steps to take while fading out the
+FontWarning message.  More steps make for a smoother fade-out.</p>
+</dd></dl>
+
+<dl class="describe">
+<dt>
+<tt class="descname">fadeoutTime: 1.5*1000</tt></dt>
+<dd><p>This is the time used to perform the fade-out, in milliseconds.
+The default is 1.5 seconds.</p>
+</dd></dl>
+
+</div>
+
+
+                    
+                        <div id="disqus_thread"></div>
+                        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    
+                </div>
+                <div class="span3">
+                    
+        <div class="sphinxsidebar">
+            <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="MathZoom.html"
+                        title="previous chapter">The MathZoom extension</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../platforms/index.html"
+                        title="next chapter">Using MathJax in popular web platforms</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/options/FontWarnings.txt"
+           rel="nofollow">Show Source</a></li>
+    <li><a href="https://github.com/mathjax/mathjax-docs/tree/v1.1-latest/options/FontWarnings.rst"
+           rel="nofollow">Edit Source (on GitHub)</a></li>
+  </ul>
+            </div>
+        </div>
+                </div>
+            
+        </div>
+    </div>
+    <div class="footer">
+        
+        <div class="container">
+                    &copy;
+                        Copyright 2011 Design Science.
+                Created using <a
+                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
+                    .
+                Theme <a href="https://github.com/scotch/sphinx-bootstrap">Sphinx-Bootstrap</a>
+                adapted from
+                <a href="http://twitter.github.com/bootstrap/">Twitter's
+                    Bootstrap</a> by <a href="http://www.scotchmedia.com">Scotch
+                Media</a>
+        </div>
+    </div>
+
+
+    <!-- disqus -->
+    <script type="text/javascript">
+        var disqus_title = 'The FontWarnings extension &mdash; MathJax 1.1 documentation';
+        var disqus_identifier ='code' + '.' + "mathjax" + window.location.pathname.replace('/', '.');
+    </script>
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = "mathjax"; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+
+
+<script type="text/javascript">
+    $('.nav .active').on('click', function () {
+        e.preventDefault()
+        $(this).siblings().toggle()
+    });
+</script>
+
+<!-- plusone -->
+<script type="text/javascript">
+    (function () {
+        var po = document.createElement('script');
+        po.type = 'text/javascript';
+        po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(po, s);
+    })();
+</script>
+
+<!-- twitter -->
+<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+
+</body>
+</html>
