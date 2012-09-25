@@ -246,7 +246,7 @@ Each function is passed one parameter, which is the
 <tt class="docutils literal"><span class="pre">MathJax.Hub.Browser</span></tt> object.  You do not need to include
 every browser as one of your choices &#8212; only those for which you
 need to do special processing.  For example:</p>
-<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">Select</span><span class="p">(</span>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="nx">MathJax</span><span class="p">.</span><span class="nx">Hub</span><span class="p">.</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">Select</span><span class="p">({</span>
   <span class="nx">MSIE</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">browser</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">browser</span><span class="p">.</span><span class="nx">versionAtLeast</span><span class="p">(</span><span class="s2">&quot;8.0&quot;</span><span class="p">))</span> <span class="p">{...</span> <span class="k">do</span> <span class="nx">version</span> <span class="mi">8</span> <span class="nx">stuff</span> <span class="p">...</span> <span class="p">}</span>
     <span class="p">...</span> <span class="k">do</span> <span class="nx">general</span> <span class="nx">MSIE</span> <span class="nx">stuff</span> <span class="p">...</span>
@@ -256,7 +256,7 @@ need to do special processing.  For example:</p>
     <span class="k">if</span> <span class="p">(</span><span class="nx">browser</span><span class="p">.</span><span class="nx">isMac</span><span class="p">)</span> <span class="p">{...</span> <span class="k">do</span> <span class="nx">Mac</span> <span class="nx">stuff</span> <span class="p">...</span> <span class="p">}</span>
     <span class="p">...</span> <span class="k">do</span> <span class="nx">general</span> <span class="nx">Firefox</span> <span class="nx">stuff</span>
   <span class="p">}</span>
-<span class="p">);</span>
+<span class="p">});</span>
 </pre></div>
 </div>
 </dd></dl>
